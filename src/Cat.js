@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import './App.css';
 
 class Cat extends Component {
+  handleLikeBtnClick() {
+    console.log("Cat component like button just clicked!");
+  }
+  handleDislikeBtnClick() {
+    console.log("Cat component dislike button just clicked!");
+  }
   render() {
     return (
       <div style={inlineStyle}>
         <h3>Here is the cat</h3>
         <img style={{height: 400, width: 400}} src="https://www.chewy.com/petcentral/wp-content/uploads/2018/05/big-cat-breeds-main.jpg" alt="" />
         <br />
-        <button style={btnStyle}>Like</button>
-        <button style={btnStyle}>Dislike</button>
+        <button style={btnStyle} onClick={this.handleLikeBtnClick}>Like</button>
+        <button style={btnStyle} onClick={this.handleDislikeBtnClick}>Dislike</button>
       </div>
     );
   }

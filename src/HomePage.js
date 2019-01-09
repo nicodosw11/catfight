@@ -5,11 +5,6 @@ import './App.css';
 
 class HomePage extends Component {
   render() {
-    const style = {
-      textAlign: 'center',
-      fontSize: '3em',
-      color: 'teal'
-    }
     return (
       <div>
         <h1 style={style}>Cats vs Dogs: the fight!</h1>
@@ -20,6 +15,12 @@ class HomePage extends Component {
       </div>
     );
   }
+}
+
+const style = {
+  textAlign: 'center',
+  fontSize: '3em',
+  color: 'teal'
 }
 
 export default HomePage;
