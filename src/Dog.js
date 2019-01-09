@@ -4,17 +4,26 @@ import './App.css';
 class Dog extends Component {
   render() {
     return (
-      <div style={InlineStyle}>
+      <div style={inlineStyle}>
         <h3>Here is the dog</h3>
         <img style={{height: 400, width: 400}} src="https://cdn7.littlethings.com/app/uploads/2017/05/big-dog-names-two-600x600.jpg" alt="" />
+        <br />
+        <button style={btnStyle}>Like</button>
+        <button style={btnStyle}>Dislike</button>
       </div>
     );
   }
 }
 
-const InlineStyle = {
+const inlineStyle = {
   display: 'inline-block',
   margin: 'auto'
+};
+
+const btnStyle = {
+  height: '30px',
+  width: '60px',
+  margin: '10px 5px 0 5px'
 };
 
 export default Dog;
