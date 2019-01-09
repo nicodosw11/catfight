@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Cat from './Cat';
-import Dog from './Dog';
+import Pet from './Pet';
 import './App.css';
+
 
 class HomePage extends Component {
   render() {
@@ -9,8 +9,8 @@ class HomePage extends Component {
       <div>
         <h1 style={style}>Cats vs Dogs: the fight!</h1>
         <div style={{textAlign: 'center', marginTop: 50}}>
-          <Cat />
-          <Dog />
+          <Pet petName="Cat" petImageUrl="https://www.chewy.com/petcentral/wp-content/uploads/2018/05/big-cat-breeds-main.jpg"/>
+          <Pet petName="Dog" petImageUrl="https://cdn7.littlethings.com/app/uploads/2017/05/big-dog-names-two-600x600.jpg"/>
         </div>
       </div>
     );
