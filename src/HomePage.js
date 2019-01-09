@@ -13,8 +13,10 @@ class HomePage extends Component {
     return (
       <div>
         <h1 style={style}>Cats vs Dogs: the fight!</h1>
-        <Cat />
-        <Dog />
+        <div style={{textAlign: 'center', marginTop: 50}}>
+          <Cat />
+          <Dog />
+        </div>
       </div>
     );
   }
