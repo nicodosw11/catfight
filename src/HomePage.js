@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Cat from './Cat';
+import Dog from './Dog';
 import './App.css';
 
 class HomePage extends Component {
@@ -9,7 +11,11 @@ class HomePage extends Component {
       color: 'teal'
     }
     return (
-      <h1 style={style}>Cats vs Dogs: the fight!</h1>
+      <div>
+        <h1 style={style}>Cats vs Dogs: the fight!</h1>
+        <Cat />
+        <Dog />
+      </div>
     );
   }
 }
