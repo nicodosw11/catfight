@@ -13,6 +13,7 @@ class HomePage extends Component {
     this.handleLikeBtnClick = this.handleLikeBtnClick.bind(this);
     this.handleDislikeBtnClick = this.handleDislikeBtnClick.bind(this);
     this.handleShowWinnerBtnClick = this.handleShowWinnerBtnClick.bind(this);
+    this.handleStartOverBtnClick = this.handleStartOverBtnClick.bind(this);
   }
   handleLikeBtnClick(event) {
     let petName = event.target.value;
@@ -67,7 +68,14 @@ class HomePage extends Component {
       catLikesResult: catResult,
       dogLikesResult: dogResult
     });
-
+  }
+  handleStartOverBtnClick() {
+    this.setState({
+      catLikesCount: 0,
+      dogLikesCount: 0,
+      catLikesResult: '',
+      dogLikesResult: ''
+    });
   }
   render() {
     return (
@@ -91,7 +99,7 @@ class HomePage extends Component {
             result={this.state.dogLikesResult}
           />
           <div style={{textAlign: 'center'}}>
-            <button style={btnStyle} onClick={this.handleShowWinnerBtnClick}>Show winner</button>
+            {!this.state.catLikesResult && <button style={btnStyle} onClick={this.handleShowWinnerBtnClick}>Show winner</button>}
             <button style={btnStyle} onClick={this.handleStartOverBtnClick}>Start over</button>
           </div>
         </div>
