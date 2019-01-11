@@ -6,7 +6,9 @@ class HomePage extends Component {
     super(props);
     this.state = {
       catLikesCount: 0,
-      dogLikesCount: 0
+      dogLikesCount: 0,
+      catLikesResult: '',
+      dogLikesResult: ''
     };
     this.handleLikeBtnClick = this.handleLikeBtnClick.bind(this);
     this.handleDislikeBtnClick = this.handleDislikeBtnClick.bind(this);
@@ -16,16 +18,14 @@ class HomePage extends Component {
     let petName = event.target.value;
     console.log(`${petName} component like button just clicked!`);
     if (petName === 'Cat') {
-      this.setState(function(prevState) {
+      this.setState( prevState => {
         return {
           catLikesCount: prevState.catLikesCount + 1,
-          dogLikesCount: prevState.dogLikesCount
         };
       });
     } else if (petName === 'Dog') {
-      this.setState(function(prevState) {
+      this.setState( prevState => {
         return {
-          catLikesCount: prevState.catLikesCount,
           dogLikesCount: prevState.dogLikesCount + 1
         };
       });
@@ -38,28 +38,36 @@ class HomePage extends Component {
       this.setState(function(prevState) {
         return {
           catLikesCount: prevState.catLikesCount - 1,
-          dogLikesCount: prevState.dogLikesCount
         };
       });
     } else if (petName === 'Dog') {
       this.setState(function(prevState) {
         return {
-          catLikesCount: prevState.catLikesCount,
           dogLikesCount: prevState.dogLikesCount - 1
         };
       });
     }
   }
   handleShowWinnerBtnClick() {
-    var catLikesCount = this.state.catLikesCount;
-    var dogLikesCount = this.state.dogLikesCount;
+    let catLikesCount = this.state.catLikesCount;
+    let dogLikesCount = this.state.dogLikesCount;
+    let catResult = 'Tie!', dogResult = 'Tie!';
+
     if (catLikesCount > dogLikesCount) {
-      console.log('Cat is the winner')
+      // console.log('Cat is the winner')
+      catResult = 'Winner!'
+      dogResult = 'Loser!'
     } else if (catLikesCount < dogLikesCount) {
-      console.log('Dog is the winner')
-    } else {
-      console.log ('Same number of likes!')
+      // console.log('Dog is the winner')
+      catResult = 'Loser!'
+      dogResult = 'Winner!'
     }
+
+    this.setState({
+      catLikesResult: catResult,
+      dogLikesResult: dogResult
+    });
+
   }
   render() {
     return (
@@ -72,6 +80,7 @@ class HomePage extends Component {
             likesCount={this.state.catLikesCount}
             onLikeBtnClick={this.handleLikeBtnClick}
             onDislikeBtnClick={this.handleDislikeBtnClick}
+            result={this.state.catLikesResult}
           />
           <Pet
             petName="Dog"
@@ -79,6 +88,7 @@ class HomePage extends Component {
             likesCount={this.state.dogLikesCount}
             onLikeBtnClick={this.handleLikeBtnClick}
             onDislikeBtnClick={this.handleDislikeBtnClick}
+            result={this.state.dogLikesResult}
           />
           <div style={{textAlign: 'center'}}>
             <button style={btnStyle} onClick={this.handleShowWinnerBtnClick}>Show winner</button>

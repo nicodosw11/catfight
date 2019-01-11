@@ -3,6 +3,7 @@ import React from 'react';
 const Pet = props => {
   return (
     <div style={inlineStyle}>
+      <h2>{props.result}</h2>
       <h3>{props.petName}: Likes: {props.likesCount}</h3>
       <img style={{height: 400, width: 400}} src={props.petImageUrl} alt="" />
       <br />
